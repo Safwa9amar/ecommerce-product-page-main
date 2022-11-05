@@ -8,7 +8,7 @@ const AddToCart = ({ cardData = [] }) => {
   };
 
   return (
-    <div className="cart">
+    <a href="#" className="cart">
       <div className="cart__btn" onClick={handleShow}>
         <div className="cart__indicator">3</div>
         <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ const AddToCart = ({ cardData = [] }) => {
           <button className="cart__footer">checkout</button>
         </div>
       )}
-    </div>
+    </a>
   );
 };
 

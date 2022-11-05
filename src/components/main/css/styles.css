@@ -1,33 +1,193 @@
 main {
-  width: 80%;
-  margin: 0 auto;
-  padding: 1rem 0;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
 }
 
-.silder {
+.full {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  background: hsla(0deg, 0%, 0%, 0.753);
+  width: 100vw;
+  height: 100vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-animation: fade-in ease-in-out 0.5s both;
+          animation: fade-in ease-in-out 0.5s both;
+}
+
+.slider {
   display: grid;
   gap: 1rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
-.silder .slider__preview {
-  border-radius: 1rem;
-  height: 400px;
+.slider--close {
+  translate: -2.5rem;
+  place-self: end;
+  background: transparent;
+  border: 0;
+  transition: transform ease-in-out 0.2s;
+  transform-origin: center;
 }
-.silder .slider__thumbs {
+.slider--close:hover {
+  transform: rotate(-90deg);
+}
+.slider--close svg:hover {
+  cursor: pointer;
+  stroke: hsl(26deg, 100%, 55%);
+  fill: hsl(26deg, 100%, 55%);
+}
+.slider__preview {
+  display: flex;
+  align-items: center;
+  max-height: 400px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+.slider__preview img {
+  transition: scale ease-in-out 0.3s;
+  width: 100%;
+  height: 100%;
+}
+.slider__preview img:hover {
+  scale: 1.2;
+}
+.slider__preview > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: hsl(0deg, 0%, 100%);
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 1rem;
+  transition: scale ease-in-out 0.1s;
+}
+.slider__preview > button:active {
+  box-shadow: 1px 1px 0.1rem 0.1rem rgba(201, 130, 0, 0.507);
+  scale: 0.95;
+}
+.slider__preview--next {
+  translate: -1.5rem;
+}
+.slider__preview--previous {
+  translate: 1.5rem;
+}
+.slider .slider__thumbs {
   display: flex;
   justify-content: space-between;
   flex-flow: wrap;
   gap: 1rem;
 }
-.silder .slider__thumbs img {
+.slider .slider__thumbs img {
+  transition: all ease-in 0.2s;
+  border: 2px solid transparent;
   border-radius: 0.5rem;
   width: 80px;
   height: 80px;
   cursor: pointer;
 }
-.silder .slider__thumbs img:nth-child(1) {
-  border: 0.15rem solid hsl(26deg, 100%, 55%);
+.slider .slider__thumbs img.active {
+  border: 2px solid hsl(26deg, 100%, 55%);
   filter: opacity(0.5);
+}
+.slider .slider__thumbs img:hover:not(.active) {
+  filter: opacity(0.7);
+}
+
+.product {
+  display: grid;
+  grid-template-rows: auto 2fr 1fr 1.5fr auto;
+}
+.product *:first-letter {
+  text-transform: uppercase;
+}
+.product__tag {
+  color: hsl(26deg, 100%, 55%);
+  font-size: 0.6rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+}
+.product__header {
+  color: hsl(220deg, 13%, 13%);
+  text-transform: capitalize;
+  font-size: 2.5rem;
+}
+.product__description {
+  color: hsl(219deg, 9%, 45%);
+  font-size: 1rem;
+  text-align: justify;
+  max-width: calc(400px + 1rem);
+}
+.product__price {
+  color: hsl(220deg, 13%, 13%);
+  margin-top: 0.5rem;
+}
+.product__price .coupon {
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.4rem;
+  margin-inline: 1rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: hsl(26deg, 100%, 55%);
+  background: hsl(25deg, 100%, 94%);
+}
+.product__price span:not(.coupon) {
+  text-decoration: line-through;
+  color: hsl(219deg, 9%, 45%);
+  font-size: 0.7rem;
+}
+.product__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product__action--amount span {
+  color: hsl(220deg, 13%, 13%);
+  font-weight: bold;
+  margin: 0 1rem;
+}
+.product__action--amount button {
+  background: hsl(25deg, 100%, 94%);
+  border-radius: 0.2rem;
+  padding: 0.1rem 1rem;
+  font-size: 1.4rem;
+  color: hsl(26deg, 100%, 55%);
+  border: none;
+  cursor: pointer;
+}
+.product__action--amount button:hover {
+  background: hsl(223deg, 64%, 98%);
+}
+.product__action--addToCart {
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: hsl(26deg, 100%, 55%);
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  color: hsl(0deg, 0%, 100%);
+  transition: scale ease-in-out 0.3s;
+}
+.product__action--addToCart svg {
+  fill: hsl(0deg, 0%, 100%);
+}
+.product__action--addToCart:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.212);
+}
+.product__action--addToCart:active {
+  scale: 0.9;
 }/*# sourceMappingURL=styles.css.map */

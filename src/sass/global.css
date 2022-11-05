@@ -5,9 +5,36 @@
   box-sizing: border-box;
 }
 
+button:active,
+a:active {
+  outline: 2px dotted hsl(220deg, 14%, 75%);
+}
+button:focus,
+a:focus {
+  outline: 2px dotted hsl(220deg, 14%, 75%);
+}
+
 body {
   font-family: "Kumbh Sans", sans-serif;
   width: 100vw;
   height: 100vh;
   padding: 1rem 5rem;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=global.css.map */

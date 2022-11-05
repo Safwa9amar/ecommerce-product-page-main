@@ -2,9 +2,8 @@ nav {
   display: grid;
   align-items: center;
   grid-template-areas: "logo menu menu menu right_menu";
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  padding-block: 1.5rem;
   border-bottom: 1px solid hsl(220deg, 14%, 75%);
 }
 
@@ -17,6 +16,7 @@ nav {
   display: flex;
   gap: 2rem;
   font-weight: 400;
+  font-size: 0.8rem;
 }
 .menu__item {
   position: relative;
@@ -26,11 +26,11 @@ nav {
   text-decoration: none;
   color: hsl(219deg, 9%, 45%);
 }
-.menu__item--link:hover {
+.menu__item--link:hover, .menu__item--link:focus, .menu__item--link:active {
   color: hsl(220deg, 13%, 13%);
   display: block;
 }
-.menu__item--link:hover::before {
+.menu__item--link:hover::before, .menu__item--link:focus::before, .menu__item--link:active::before {
   content: "";
   display: block;
   position: absolute;
@@ -47,6 +47,17 @@ nav {
   position: relative;
 }
 
+.cart {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+}
+.cart:active, .cart:hover, .cart:visited {
+  color: inherit;
+}
 .cart ::first-letter {
   text-transform: capitalize;
 }
@@ -64,6 +75,8 @@ nav {
   cursor: pointer;
 }
 .cart__body {
+  -webkit-animation: fade-in ease-in-out 0.5s;
+          animation: fade-in ease-in-out 0.5s;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,4 +160,10 @@ nav {
 .avatar__img {
   width: 50px;
   height: 50px;
+  border-radius: 50px;
+  border: transparent 2px solid;
+  cursor: pointer;
+}
+.avatar__img:hover {
+  border: hsl(26deg, 100%, 55%) 2px solid;
 }/*# sourceMappingURL=styles.css.map */

@@ -1,14 +1,35 @@
+@import "variables.scss";
+
 // Font
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+a {
+  &:active {
+    outline: 2px dotted $Grayish-blue;
+  }
+  &:focus {
+    outline: 2px dotted $Grayish-blue;
+  }
 }
 
 body {
-    font-family: "Kumbh Sans", sans-serif;
-    width: 100vw;
-    height: 100vh;
-    padding: 1rem 5rem;
+  font-family: "Kumbh Sans", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem 5rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

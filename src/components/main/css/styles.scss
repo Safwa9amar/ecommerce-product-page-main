@@ -28,6 +28,8 @@ main {
 }
 
 .slider {
+  animation: fade-in ease-in-out 1s forwards;
+
   &--close {
     translate: -2.5rem;
     place-self: end;
@@ -154,22 +156,32 @@ main {
     font-size: 0.6rem;
     letter-spacing: 0.1rem;
     font-weight: bold;
+    opacity: 0;
+    animation: loading ease-in-out 0.5s 0.5s forwards;
   }
   &__header {
     color: $Very-dark-blue;
     text-transform: capitalize;
     font-size: 2.5rem;
+    opacity: 0;
+
+    animation: loading ease-in-out 0.5s 0.7s forwards;
   }
   &__description {
     color: $Dark-grayish-blue;
     font-size: 1rem;
     text-align: justify;
     max-width: calc(400px + 1rem);
+    opacity: 0;
+
+    animation: loading ease-in-out 0.5s 0.9s forwards;
   }
   &__price {
     color: $Very-dark-blue;
     margin-top: 0.5rem;
     height: fit-content;
+    opacity: 0;
+    animation: loading ease-in-out 0.5s 1.1s forwards;
 
     & .coupon {
       border-radius: 0.2rem;
@@ -192,6 +204,9 @@ main {
     }
   }
   &__action {
+    opacity: 0;
+    animation: loading ease-in-out 0.5s 1.3s forwards;
+
     display: flex;
     align-items: center;
     justify-content: space-between;

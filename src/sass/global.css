@@ -24,7 +24,7 @@ body {
 @media screen and (max-width: 768px) {
   body {
     height: auto;
-    padding: 0;
+    padding: 0 0 1rem 0;
   }
 }
 
@@ -50,6 +50,24 @@ body {
     opacity: 0;
   }
   to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes loading {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes loading {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }/*# sourceMappingURL=global.css.map */

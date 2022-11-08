@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SliderItem from "./SilderItem";
+import { useMediaPredicate } from "react-media-hook";
 
 const Slider = ({
   data,
@@ -8,6 +9,7 @@ const Slider = ({
   Index,
   setIndex,
 }) => {
+  const SmallDevices = useMediaPredicate("(max-width: 768px)");
   const [selectedProduct, setSelectedProduct] = useState(data[Index]);
   const handleThumb = (idx, product) => {
     setSelectedProduct(product);
@@ -24,7 +26,6 @@ const Slider = ({
   useEffect(() => {
     setSelectedProduct(data[Index]);
   }, [Index, data]);
-
   // create active state for thumbs
   return (
     <div className="slider ">
@@ -45,7 +46,7 @@ const Slider = ({
       )}
 
       <div className="slider__preview">
-        {isFullScreen && (
+        {(isFullScreen || SmallDevices) && (
           <button
             onClick={handlePrevious}
             className="slider__preview--previous"
@@ -69,7 +70,7 @@ const Slider = ({
           alt="product"
         />
 
-        {isFullScreen && (
+        {(isFullScreen || SmallDevices) && (
           <button onClick={handleNext} className="slider__preview--next">
             <svg
               width="14"

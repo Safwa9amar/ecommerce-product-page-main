@@ -23,6 +23,19 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 1rem 5rem;
+  @media screen and (max-width: 768px) {
+    height: auto;
+    padding: 0;
+  }
+  overflow-x: hidden;
+}
+
+.attribution {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  display: none;
 }
 
 @keyframes fade-in {

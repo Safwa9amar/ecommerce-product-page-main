@@ -19,6 +19,21 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 1rem 5rem;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 768px) {
+  body {
+    height: auto;
+    padding: 0;
+  }
+}
+
+.attribution {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  display: none;
 }
 
 @-webkit-keyframes fade-in {

@@ -1,26 +1,38 @@
+import { useState } from "react";
+import Footer from "./components/Footer";
 import Header from "./components/header";
 import Main from "./components/main";
 import "./sass/global.css";
 
 function App() {
+  // pass selected cart item to header
+  const [cart, setCart] = useState([]);
+
+  const handleCart = (item, amountState) => {
+    item.amount = amountState;
+    const exist = cart.find((x) => x.id === item.id);
+    if (exist) {
+      setCart(
+        cart.map((x) =>
+          x.id === item.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCart([...cart, { ...item, qty: 1 }]);
+    }
+  };
+  // remove item from cart
+  const removeItem = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="App">
-      <Header />
-      <Main />
+      <Header cart={cart} removeItem={removeItem} />
+      <Main handleCart={handleCart} />
+      <Footer />
     </div>
   );
 }
 
 export default App;
-
-// Sneaker Company Fall Limited Edition Sneakers These low-profile sneakers
-//       are your perfect casual wear companion. Featuring a durable rubber outer
-//       sole, they’ll withstand everything the weather can offer. $125.00 50%
-//       $250.00 0 Add to cart
-//       <div class="attribution">
-//         Challenge by{" "}
-//         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-//           Frontend Mentor
-//         </a>
-//         . Coded by <a href="#">Your Name Here</a>.
-//       </div>

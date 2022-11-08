@@ -13,20 +13,45 @@ export const data = [
     id: 1,
     img: prod1,
     thum: thumb1,
+    tag: "SNEAKER COMPANY",
+    header: "Fall Limited Edition Sneakers",
+    description:
+      "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price: 250,
+    discount: 50,
   },
   {
     id: 2,
     img: prod2,
     thum: thumb2,
+    // generate another data this object is for product details
+    tag: "SNEAKER COMPANY",
+    header: "Fall Limited Edition Sneakers",
+    description:
+      "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price: 250,
+    discount: 50,
   },
   {
     id: 3,
     img: prod3,
     thum: thumb3,
+    tag: "SNEAKER COMPANY",
+    header: "Fall Limited Edition <br/> Sneakers",
+    description:
+      "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price: 250,
+    discount: 50,
   },
   {
     id: 4,
     img: prod4,
     thum: thumb4,
+    tag: "SNEAKER COMPANY",
+    header: "Fall Limited Edition Sneakers",
+    description:
+      "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price: 250,
+    discount: 50,
   },
 ];

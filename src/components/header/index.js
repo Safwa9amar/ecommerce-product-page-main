@@ -5,14 +5,18 @@ import Menu from "./components/Menu";
 import Nav from "./css/Nav";
 import "./css/styles.css";
 import avatar from "../../assets/image-avatar.png";
-export default function Header() {
+import Humberger from "./components/Humberger";
+import { useState } from "react";
+export default function Header({ cart, removeItem }) {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <header>
       <Nav>
+        <Humberger setShowMenu={setShowMenu} />
         <Logo />
-        <Menu />
+        <Menu show={showMenu} />
         <div className="right_menu">
-          <AddToCart />
+          <AddToCart cardData={cart} removeItem={removeItem} />
           <Avatar img={avatar} />
         </div>
       </Nav>

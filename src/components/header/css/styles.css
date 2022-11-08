@@ -1,10 +1,44 @@
 nav {
+  position: relative;
   display: grid;
   align-items: center;
   grid-template-areas: "logo menu menu menu right_menu";
   width: 90%;
   margin: 0 auto;
   border-bottom: 1px solid hsl(220deg, 14%, 75%);
+}
+@media screen and (max-width: 768px) {
+  nav {
+    border-bottom: 0;
+    grid-template-areas: "humberger logo logo logo logo right_menu right_menu";
+  }
+}
+
+.flex {
+  display: flex !important;
+}
+
+.humberger {
+  grid-area: humberger;
+  position: relative;
+}
+.humberger button {
+  background: transparent;
+  border: 0;
+}
+.humberger button svg {
+  fill: hsl(220deg, 13%, 13%);
+}
+.humberger--close {
+  position: fixed;
+  top: 1rem;
+  left: 1.5rem;
+  z-index: 2222;
+}
+@media screen and (min-width: 769px) {
+  .humberger {
+    display: none;
+  }
 }
 
 .Logo {
@@ -21,6 +55,7 @@ nav {
 .menu__item {
   position: relative;
   list-style: none;
+  font-weight: bold;
 }
 .menu__item--link {
   text-decoration: none;
@@ -30,27 +65,44 @@ nav {
   color: hsl(220deg, 13%, 13%);
   display: block;
 }
-.menu__item--link:hover::before, .menu__item--link:focus::before, .menu__item--link:active::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 3.6rem;
-  width: 100%;
-  height: 0.3rem;
-  background: hsl(26deg, 100%, 55%);
+@media screen and (min-width: 768px) {
+  .menu__item--link:hover::before, .menu__item--link:focus::before, .menu__item--link:active::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 3.6rem;
+    width: 100%;
+    height: 0.3rem;
+    background: hsl(26deg, 100%, 55%);
+  }
+}
+@media screen and (max-width: 768px) {
+  .menu {
+    position: fixed;
+    z-index: 111;
+    width: 60vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: hsl(0deg, 0%, 100%);
+    flex-direction: column;
+    padding: 5rem 2rem;
+    box-shadow: 40vw 0 10px 10px hsla(0deg, 0%, 0%, 0.753);
+    display: none;
+    -webkit-animation: fade-in ease-in 0.3s;
+            animation: fade-in ease-in 0.3s;
+  }
 }
 
 .right_menu {
   grid-area: right_menu;
   display: flex;
   justify-content: space-evenly;
-  position: relative;
+  align-items: center;
 }
 
 .cart {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 50px;
   background: transparent;
   border: none;
   text-decoration: none;
@@ -71,6 +123,13 @@ nav {
   transform: translate(10px, 10px);
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .cart__indicator {
+    font-size: 0.6rem;
+    padding-block: 1px;
+    width: 1rem;
+  }
+}
 .cart__btn {
   cursor: pointer;
 }
@@ -82,10 +141,9 @@ nav {
   align-items: center;
   position: absolute;
   z-index: 10;
-  left: 40%;
   transform: translate(-55%);
   top: 3.5rem;
-  min-width: 350px;
+  min-width: 320px;
   padding: 1rem;
   background: hsl(0deg, 0%, 100%);
   border-radius: 0.5rem;
@@ -102,6 +160,13 @@ nav {
   min-height: 50px;
   width: 100%;
   text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .cart__body {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 .cart__footer {
   width: calc(100% - 1.5rem);
@@ -166,4 +231,10 @@ nav {
 }
 .avatar__img:hover {
   border: hsl(26deg, 100%, 55%) 2px solid;
+}
+@media screen and (max-width: 768px) {
+  .avatar__img {
+    height: 35px;
+    width: 35px;
+  }
 }/*# sourceMappingURL=styles.css.map */

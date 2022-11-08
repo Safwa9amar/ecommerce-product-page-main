@@ -1,6 +1,7 @@
 @import "../../../sass/variables.scss";
 
 nav {
+  position: relative;
   display: grid;
   align-items: center;
   grid-template-areas: "logo menu menu menu right_menu";
@@ -9,8 +10,38 @@ nav {
   margin: 0 auto;
   // padding-block: 0.5rem;
   border-bottom: 1px solid $Grayish-blue;
+  @media screen and (max-width: 768px) {
+    border-bottom: 0;
+    grid-template-areas: "humberger logo logo logo logo right_menu right_menu";
+  }
 }
 
+.flex {
+  display: flex !important;
+}
+
+.humberger {
+  grid-area: humberger;
+  position: relative;
+  & button {
+    background: transparent;
+    border: 0;
+
+    & svg {
+      fill: $Very-dark-blue;
+    }
+  }
+  &--close {
+    position: fixed;
+    top: 1rem;
+    left: 1.5rem;
+    z-index: 2222;
+  }
+
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
 .Logo {
   grid-area: logo;
 }
@@ -23,6 +54,7 @@ nav {
   &__item {
     position: relative;
     list-style: none;
+    font-weight: bold;
     &--link {
       text-decoration: none;
       color: $Dark-grayish-blue;
@@ -31,27 +63,43 @@ nav {
       &:active {
         color: $Very-dark-blue;
         display: block;
-        &::before {
-          content: "";
-          display: block;
-          position: absolute;
-          top: 3.6rem;
-          width: 100%;
-          height: 0.3rem;
-          background: $Orange;
+        @media screen and (min-width: 768px) {
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 3.6rem;
+            width: 100%;
+            height: 0.3rem;
+            background: $Orange;
+          }
         }
       }
     }
+  }
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    z-index: 111;
+    width: 60vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: $White;
+    flex-direction: column;
+    padding: 5rem 2rem;
+    box-shadow: 40vw 0 10px 10px $lightbox;
+    display: none;
+    animation: fade-in ease-in 0.3s;
   }
 }
 .right_menu {
   grid-area: right_menu;
   display: flex;
   justify-content: space-evenly;
-  position: relative;
+  align-items: center;
 }
 .cart {
-  height: fit-content;
+  height: 50px;
   background: transparent;
   border: none;
   text-decoration: none;
@@ -72,6 +120,11 @@ nav {
     color: $White;
     transform: translate(10px, 10px);
     cursor: pointer;
+    @media screen and (max-width: 768px) {
+      font-size: 0.6rem;
+      padding-block: 1px;
+      width: 1rem;
+    }
   }
   &__btn {
     cursor: pointer;
@@ -85,10 +138,10 @@ nav {
     align-items: center;
     position: absolute;
     z-index: 10;
-    left: 40%;
+    // left: 40%;
     transform: translate(-55%);
     top: 3.5rem;
-    min-width: 350px;
+    min-width: 320px;
     padding: 1rem;
     background: $White;
     border-radius: 0.5rem;
@@ -104,6 +157,11 @@ nav {
       min-height: 50px;
       width: 100%;
       text-align: center;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   &__footer {
@@ -175,6 +233,10 @@ nav {
     cursor: pointer;
     &:hover {
       border: $Orange 2px solid;
+    }
+    @media screen and(max-width:768px) {
+      height: 35px;
+      width: 35px;
     }
   }
 }

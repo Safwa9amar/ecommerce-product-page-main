@@ -1,8 +1,8 @@
 import React from "react";
 
-const Menu = () => {
+const Menu = ({ show }) => {
   return (
-    <ul className="menu">
+    <ul className={`menu ${show ? "flex" : ""}`}>
       <li className="menu__item">
         <a href="#nav" className="menu__item--link">
           Collections
